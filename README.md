@@ -7,13 +7,12 @@ Data source is avaliable on Udacity github.
 Ⅰ. Insides includes steering angles, speed and torque from left, center and right cameras.   
 Ⅱ. Image size: 640*320
 
-        training data: ![Ch2_002.tar.gz.torrent](https://github.com/udacity/self-driving-car/blob/master/datasets/CH2)  
-        testing data: ![Ch2_001.tar.gz.torrent](https://github.com/udacity/self-driving-car/blob/master/datasets/CH2)
+training data: ![Ch2_002.tar.gz.torrent](https://github.com/udacity/self-driving-car/blob/master/datasets/CH2)  
+testing data: ![Ch2_001.tar.gz.torrent](https://github.com/udacity/self-driving-car/blob/master/datasets/CH2)
 
 #### 2.1 Reading Tool
 Data format: Rosbag
-
-        [udacity-driving-reader tool](https://github.com/rwightman/udacity-driving-reader) from Mr.Ross Wightman 
+Tool: ![udacity-driving-reader tool](https://github.com/rwightman/udacity-driving-reader) from Mr.Ross Wightman 
 ### 2.2 DataLoading
 For 3DCNN+LSTM and TransferLearning models, we load images in different sizes. In ![Dataloading code](https://github.com/FangLintao/Self-Driving-Car/tree/master/DataLoading), two files can be found.
 
