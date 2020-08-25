@@ -1,27 +1,30 @@
 # Self-Driving-Car
 ![image](https://github.com/FangLintao/Self-Driving-Car/blob/master/images/introduction.png)  
-## 1. Introduction
-By using two neural network models, 3DCNN+LSTM and TransferLearning, to analyse and extract information from video of driving recording in real world and predict steering angles based on road sitaution, so that autonomous cars are able to drive by themselves.  
-## 2. Data
-training data: ![Ch2_002](https://github.com/udacity/self-driving-car/blob/master/datasets/CH2/Ch2_002.tar.gz.torrent)  
-testing data: ![Ch2_001](https://github.com/udacity/self-driving-car/blob/master/datasets/CH2/Ch2_001.tar.gz.torrent)
-### 2.1 Brief Introduction
-* Contain:Inside these two datasets, mian informations include steering angles, speed and torque from left, center and right cameras  
-* Size: images inside datasets are 640*320  
-### 2.2 Reading Tool
-Because the format of these two files are in rosbag, so it is able to export images from rosbag by check ![udacity-driving-reader tool](https://github.com/rwightman/udacity-driving-reader) from Mr.Ross Wightman 
-### 2.3 Preprocessing
-### 2.4 DataLoading
+### 1. Introduction
+Prediction on Steering Angles for Self-driving Car is one of challenge in Udacity, and the main purpose of this project is to create two models, that are 3DCNN+LSTM and TransferLearning, to analyse and extract information from video of driving recording in real world, predicting steering angles based on real road sitaution, so that autonomous cars are able to drive by themselves.  
+### 2. Data
+Data source is avaliable on Udacity github. 
+Ⅰ. Insides includes steering angles, speed and torque from left, center and right cameras.   
+Ⅱ. Image size: 640*320
+
+        training data: ![Ch2_002.tar.gz.torrent](https://github.com/udacity/self-driving-car/blob/master/datasets/CH2)  
+        testing data: ![Ch2_001.tar.gz.torrent](https://github.com/udacity/self-driving-car/blob/master/datasets/CH2)
+
+#### 2.1 Reading Tool
+Data format: Rosbag
+
+        [udacity-driving-reader tool](https://github.com/rwightman/udacity-driving-reader) from Mr.Ross Wightman 
+### 2.2 DataLoading
 For 3DCNN+LSTM and TransferLearning models, we load images in different sizes. In ![Dataloading code](https://github.com/FangLintao/Self-Driving-Car/tree/master/DataLoading), two files can be found.
 
         ConsecutiveBatchSampler.py & UdacityDataset.py
 
-## 3. Neural Network
+### 3. Neural Network
 For ![3DCNN+LSTM and TransferLearning models](https://github.com/FangLintao/Self-Driving-Car/tree/master/model), two files can be found.
 
         Convolution3D.py & TransferLearning.py
 
-### 3.1 3DCNN+LSTM
+#### 3.1 3DCNN+LSTM
 ![image](https://github.com/FangLintao/Self-Driving-Car/blob/master/images/3DCNN%2BLSTM%20model.png)   
 
         * Loading Size: [Batch_size, sequence_length, channels, height, width]  
@@ -30,7 +33,7 @@ For ![3DCNN+LSTM and TransferLearning models](https://github.com/FangLintao/Self
 ##### Main Characteristics:    
 Ⅰ. Insides 3D convolution layers, residual connection layers are added in order to tackle graident vanishing situation; When going through LSTM, memory property is to withdraw information from former images and output integrated infromation to next linear connection layers  
 Ⅱ. With time sequence, 3DCNN+LSTM take video-type input data and LSTM can memorize driving history based on former frames extracted from 3DCNN layers;  
-### 3.2 TransferLearning
+#### 3.2 TransferLearning
 ![image](https://github.com/FangLintao/Self-Driving-Car/blob/master/images/TL%20model.png)  
 Reference: ![Self-Driving Car Steering Angle Prediction Based on Image Recognition](https://arxiv.org/abs/1912.05440), Shuyang Du, Haoli Guo, Andrew Simpson, arXiv:1912.05440v1[sc.CV] 11.Dec.2019, page 4, "Figure 3. Architecture used for transfer learning model"  
 
